@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 
 class TreeNodesTableSeeder extends Seeder
 {
-    const MAX_TREE_HEIGHT = 5;
+    const MAX_TREE_HEIGHT = 6;
     const GENERATE_CHILD_PROBABILITY = 8;
 
     /**
@@ -26,7 +26,7 @@ class TreeNodesTableSeeder extends Seeder
         $this->createChildren($rootNode);
     }
 
-    protected function createChildren(TreeNode $node, $level = 0)
+    protected function createChildren(TreeNode $node, $level = 1)
     {
         $leftNode = (rand(0, 10) <= static::GENERATE_CHILD_PROBABILITY) ? factory(TreeNode::class)->create() : null;
 
